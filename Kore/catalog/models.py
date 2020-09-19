@@ -37,8 +37,8 @@ class Psolved(models.Model):
         """Returns the url to access a detail record for this psolved."""
         return reverse('psolved-detail', args=[str(self.id)])
 
-class Punsolved(models.Model):   
-    'Creates a model with the class, assignment number, question number, and part number that user has not solved'
+class UnsolvedP(models.Model):   
+    'Creates a model with the class, assignment number, and question number that user has not solved'
     class_name = models.CharField(max_length=20, verbose_name='Class No. (e.g. 6.006)', help_text='Enter the class no. as per catalog.mit.edu')
     assign_name = models.IntegerField(verbose_name='Pset No. (e.g. 1)', help_text='Enter the problem set number')
     question_number = models.IntegerField(verbose_name='Question No. (e.g. 1)', help_text='Enter the question which you have not solved')
@@ -47,5 +47,5 @@ class Punsolved(models.Model):
         """String for representing the Model object."""
         return self.class_name + str(self.assign_name) + str(self.question_number)
     def get_absolute_url(self):
-        """Returns the url to access a detail record for this punsolved."""
-        return reverse('user-detail', args=[str(self.id)])
+        """Returns the url to access a detail record for this psolved."""
+        return reverse('psolved-detail', args=[str(self.id)])
