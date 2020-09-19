@@ -1,3 +1,6 @@
+from catalog.models import student, solvedProblem, unsolvedProblem
+
+
 def match(people, solved, unsolved):
     '''
         input: people - list of users
@@ -36,4 +39,4 @@ def match(people, solved, unsolved):
     psetbuddies = [buddies[i:i+len(people)-1] for i in range(0,(len(people)-1)*len(people),len(people)-1)]
     return psetbuddies
     
-
+match(student, solvedProblem, unsolvedProblem)
