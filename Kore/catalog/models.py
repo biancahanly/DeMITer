@@ -39,10 +39,10 @@ class Psolved(models.Model):
 
 class Punsolved(models.Model):   
     'Creates a model with the class, assignment number, question number, and part number that user has not solved'
-    class_name_u = models.CharField(max_length=20, verbose_name='Class No. (e.g. 6.006)', help_text='Enter the class no. as per catalog.mit.edu')
-    assign_name_u = models.IntegerField(verbose_name='Pset No. (e.g. 1)', help_text='Enter the problem set number')
-    question_number_u = models.IntegerField(verbose_name='Question No. (e.g. 1)', help_text='Enter the question which you have not solved')
-    students_u = models.ManyToManyField('User')
+    class_name = models.CharField(max_length=20, verbose_name='Class No. (e.g. 6.006)', help_text='Enter the class no. as per catalog.mit.edu')
+    assign_name = models.IntegerField(verbose_name='Pset No. (e.g. 1)', help_text='Enter the problem set number')
+    question_number = models.IntegerField(verbose_name='Question No. (e.g. 1)', help_text='Enter the question which you have not solved')
+    students = models.ManyToManyField('User')
     def __str__(self):
         """String for representing the Model object."""
         return self.class_name + str(self.assign_name) + str(self.question_number)
